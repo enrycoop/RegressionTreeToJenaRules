@@ -2,6 +2,17 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 import pandas
 from sklearn.tree import _tree
 from utils_tree import *
+"""
+DESCRIPTION OF TARGET 
+Albedo (/ælˈbiːdoʊ/) (Latin: albedo, meaning 'whiteness') is the measure of the diffuse 
+reflection of solar radiation out of the total solar radiation received by an astronomical 
+body (e.g. a planet like Earth). It is dimensionless and measured on a scale from 0 
+(corresponding to a black body that absorbs all incident radiation) 
+to 1 (corresponding to a body that reflects all incident radiation). 
+"""
+
+
+
 
 #data retrieving from dbpedia
 
@@ -11,7 +22,7 @@ sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
 sparql.setQuery("""
    PREFIX dbpedia: <http://dbpedia.org/ontology/>
-   SELECT DISTINCT ?mag ?apoapsis ?escape ?rotPer ?orbitalPer ?target
+   SELECT DISTINCT ?mag ?apoapsis ?periapsis ?escape ?rotPer ?orbitalPer ?target
    WHERE{
       ?CelestialBody a dbpedia:Planet.
       ?CelestialBody dbpedia:absoluteMagnitude ?mag.
@@ -19,8 +30,9 @@ sparql.setQuery("""
       ?CelestialBody dbpedia:escapeVelocity ?escape.
       ?CelestialBody dbpedia:rotationPeriod ?rotPer.
       ?CelestialBody dbpedia:orbitalPeriod ?orbitalPer.
+      ?CelestialBody dbpedia:periapsis ?periapsis.
       OPTIONAL{
-       ?CelestialBody dbpedia:averageSpeed ?target.
+       ?CelestialBody dbpedia:albedo ?target.
       }
    } 
 """)
@@ -40,23 +52,23 @@ X_void =[]
 for result in results["results"]["bindings"]:
    
    if 'target' not in result:
-      X_void.append([float(result['mag']['value']),float(result['apoapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
+      X_void.append([float(result['mag']['value']),float(result['apoapsis']['value']),float(result['periapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
    else:
-      X.append([float(result['mag']['value']),float(result['apoapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
+      X.append([float(result['mag']['value']),float(result['apoapsis']['value']),float(result['periapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
       y.append(float(result['target']['value']))
       
 
 X = np.array(X)
 y = np.array(y)
 print(f'total samples downloaded: {len(y)}')
-features = [('dbpedia:absoluteMagnitude','M'),('dbpedia:apoapsis','A'),('dbpedia:rotationPeriod','R'),('dbpedia:escapeVelocity','E'),('dbpedia:orbitalPeriod','O')]
-target = 'dbpedia:averageSpeed'
+features = [('dbpedia:absoluteMagnitude','M'),('dbpedia:periapsis','P'),('dbpedia:apoapsis','A'),('dbpedia:rotationPeriod','R'),('dbpedia:escapeVelocity','E'),('dbpedia:orbitalPeriod','O')]
+target = 'dbpedia:albedo'
 
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
-'''
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=33)
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=33)
+'''
 print(f"x_train:{len(y_train)}\nx_test:{len(y_test)}")
 for i in range(len(features),len(features)*4):
    regr = DecisionTreeRegressor(max_depth=i,min_samples_split=0.1,criterion='friedman_mse')
