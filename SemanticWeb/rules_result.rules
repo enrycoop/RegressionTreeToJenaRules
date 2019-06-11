@@ -9,16 +9,16 @@
  (?subject dbpedia:absoluteMagnitude 16.5)]
 
 [r2:
-?subject dbpedia:apoapsis ge( ?A, 232842502144.0 ) 
+?subject dbpedia:rotationPeriod ge( ?R, 77477.46997070312 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 16.8)]
+ (?subject dbpedia:absoluteMagnitude 16.9)]
 
 [r3:
 ?subject dbpedia:escapeVelocity ge( ?E, 0.25999999046325684 ), 
 ?subject dbpedia:apoapsis lessThan( ?A, 166644498432.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 232842502144.0 ) 
+?subject dbpedia:rotationPeriod lessThan( ?R, 77477.46997070312 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 16.9)]
+ (?subject dbpedia:absoluteMagnitude 16.8)]
 
 [r4:
 ?subject dbpedia:escapeVelocity ge( ?E, 0.6500000059604645 ) 
@@ -40,13 +40,13 @@
  (?subject dbpedia:absoluteMagnitude 22.1)]
 
 [r7:
-?subject dbpedia:rotationPeriod ge( ?R, 14589.0 ) 
+?subject dbpedia:apoapsis ge( ?A, 306699509760.0 ) 
 ->
  (?subject dbpedia:absoluteMagnitude 17.4)]
 
 [r8:
 ?subject dbpedia:escapeVelocity ge( ?E, 3.5999999046325684 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 14589.0 ) 
+?subject dbpedia:apoapsis lessThan( ?A, 306699509760.0 ) 
 ->
  (?subject dbpedia:absoluteMagnitude 17.3)]
 
@@ -61,7 +61,7 @@
  (?subject dbpedia:absoluteMagnitude 15.1)]
 
 [r11:
-?subject dbpedia:apoapsis ge( ?A, 614398492672.0 ) 
+?subject dbpedia:rotationPeriod ge( ?R, 327243.599609375 ) 
 ->
  (?subject dbpedia:absoluteMagnitude 15.5)]
 
@@ -71,20 +71,20 @@
 ?subject dbpedia:escapeVelocity lessThan( ?E, 3.5999999046325684 ), 
 ?subject dbpedia:apoapsis lessThan( ?A, 465358012416.0 ), 
 ?subject dbpedia:apoapsis lessThan( ?A, 608744013824.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 614398492672.0 ) 
+?subject dbpedia:rotationPeriod lessThan( ?R, 327243.599609375 ) 
 ->
  (?subject dbpedia:absoluteMagnitude 15.3)]
 
 [r13:
 ?subject dbpedia:escapeVelocity ge( ?E, 34.739999771118164 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 11.76636363636364)]
+ (?subject dbpedia:absoluteMagnitude 11.766363636363637)]
 
 [r14:
 ?subject dbpedia:apoapsis ge( ?A, 546196996096.0 ), 
 ?subject dbpedia:escapeVelocity lessThan( ?E, 34.739999771118164 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 10.983333333333334)]
+ (?subject dbpedia:absoluteMagnitude 10.983333333333333)]
 
 [r15:
 ?subject dbpedia:escapeVelocity ge( ?E, 18.0 ) 
@@ -130,7 +130,7 @@
 [r22:
 ?subject dbpedia:apoapsis ge( ?A, 531730497536.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 10.29)]
+ (?subject dbpedia:absoluteMagnitude 10.290000000000001)]
 
 [r23:
 ?subject dbpedia:escapeVelocity ge( ?E, 90.54000091552734 ), 
@@ -171,7 +171,7 @@
 [r29:
 ?subject dbpedia:apoapsis ge( ?A, 3756924469248.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 7.205151515151518)]
+ (?subject dbpedia:absoluteMagnitude 7.205151515151516)]
 
 [r30:
 ?subject dbpedia:escapeVelocity ge( ?E, 261000.0 ), 
