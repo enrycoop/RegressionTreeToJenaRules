@@ -54,3 +54,4 @@ print(regr.predict([[3.699, 4.66236e+05,6000]]))
 with open('rules_result.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
+         
