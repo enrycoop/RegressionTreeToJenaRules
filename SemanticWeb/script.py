@@ -18,6 +18,7 @@ sparql.setQuery("""
       ?CelestialBody dbpedia:apoapsis ?apoapsis.
       ?CelestialBody dbpedia:escapeVelocity ?escape.
       ?CelestialBody dbpedia:rotationPeriod ?rotPer.
+      
    } 
 """)
 
@@ -40,19 +41,33 @@ for result in results["results"]["bindings"]:
    y.append(float(result['mag']['value']))
 X = np.array(X)
 y = np.array(y)
+print(f'total samples downloaded: {len(y)}')
 features = [('dbpedia:apoapsis','A'),('dbpedia:rotationPeriod','R'),('dbpedia:escapeVelocity','E')]
 target = 'dbpedia:absoluteMagnitude'
+
 from sklearn.tree import DecisionTreeRegressor
-import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
-regr = DecisionTreeRegressor(max_depth=len(features)*2)
-regr.fit(X, y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=33)
 
-print(regr.predict([[3.699, 4.66236e+05,6000]]))
+print(f"x_train:{len(y_train)}\nx_test:{len(y_test)}")
+for i in range(len(features),len(features)*4):
+   regr = DecisionTreeRegressor(max_depth=i)
+   regr.fit(X_train, y_train)
+
+   r_tests = regr.predict(X_test)
+   tot = 0
+   for j in range(0,len(r_tests)):
+      tot += (abs(r_tests[j]-y_test[j]))
+   tot/=len(r_tests)
+   print(f"mse({i}): {tot}")
+y = np.array(y_test)
+print(f"max: {y.max()} - min: {y.min()} - mean: {y.mean()}")
 
 
+'''
 with open('rules_result.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
-
+'''
 
