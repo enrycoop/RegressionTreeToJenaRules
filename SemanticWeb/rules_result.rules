@@ -1,190 +1,76 @@
 [r0:
-?subject dbpedia:apoapsis ge( ?A, 156330000384.0 ) 
+?subject dbpedia:apoapsis ge( ?A, 295489503232.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 24.1)]
+ (?subject dbpedia:averageSpeed 107267.8)]
 
 [r1:
-?subject dbpedia:apoapsis ge( ?A, 166644498432.0 ) 
+?subject dbpedia:apoapsis ge( ?A, 385600503808.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 16.5)]
+ (?subject dbpedia:averageSpeed 72861.0)]
 
 [r2:
-?subject dbpedia:rotationPeriod ge( ?R, 77477.46997070312 ) 
+?subject dbpedia:apoapsis ge( ?A, 493740490752.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 16.9)]
+ (?subject dbpedia:averageSpeed 68505.65217391304)]
 
 [r3:
-?subject dbpedia:escapeVelocity ge( ?E, 0.25999999046325684 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 166644498432.0 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 77477.46997070312 ) 
+?subject dbpedia:orbitalPeriod ge( ?O, 130900500.0 ), 
+?subject dbpedia:apoapsis lessThan( ?A, 385600503808.0 ), 
+?subject dbpedia:apoapsis lessThan( ?A, 493740490752.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 16.8)]
+ (?subject dbpedia:averageSpeed 60336.0)]
 
 [r4:
-?subject dbpedia:escapeVelocity ge( ?E, 0.6500000059604645 ) 
+?subject dbpedia:orbitalPeriod ge( ?O, 142560000.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 19.8)]
+ (?subject dbpedia:averageSpeed 65098.2)]
 
 [r5:
-?subject dbpedia:escapeVelocity ge( ?E, 1.412280023097992 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 0.6500000059604645 ) 
+?subject dbpedia:orbitalPeriod ge( ?O, 152176000.0 ), 
+?subject dbpedia:orbitalPeriod lessThan( ?O, 142560000.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 19.066666666666666)]
+ (?subject dbpedia:averageSpeed 63936.0)]
 
 [r6:
-?subject dbpedia:escapeVelocity ge( ?E, 1.772279977798462 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 156330000384.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 0.25999999046325684 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 1.412280023097992 ) 
+?subject dbpedia:orbitalPeriod ge( ?O, 165784504.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 22.1)]
+ (?subject dbpedia:averageSpeed 62346.0)]
 
 [r7:
-?subject dbpedia:apoapsis ge( ?A, 306699509760.0 ) 
+?subject dbpedia:apoapsis ge( ?A, 544982499328.0 ), 
+?subject dbpedia:apoapsis lessThan( ?A, 295489503232.0 ), 
+?subject dbpedia:orbitalPeriod lessThan( ?O, 130900500.0 ), 
+?subject dbpedia:orbitalPeriod lessThan( ?O, 152176000.0 ), 
+?subject dbpedia:orbitalPeriod lessThan( ?O, 165784504.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 17.4)]
+ (?subject dbpedia:averageSpeed 60597.391304347824)]
 
 [r8:
-?subject dbpedia:escapeVelocity ge( ?E, 3.5999999046325684 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 306699509760.0 ) 
+?subject dbpedia:escapeVelocity ge( ?E, 16269.10009765625 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 17.3)]
+ (?subject dbpedia:averageSpeed 60030.0)]
 
 [r9:
-?subject dbpedia:apoapsis ge( ?A, 465358012416.0 ) 
+?subject dbpedia:escapeVelocity ge( ?E, 24072.5 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 15.8)]
+ (?subject dbpedia:averageSpeed 29350.56813559323)]
 
 [r10:
-?subject dbpedia:apoapsis ge( ?A, 608744013824.0 ) 
+?subject dbpedia:absoluteMagnitude ge( ?M, 15.0 ), 
+?subject dbpedia:escapeVelocity lessThan( ?E, 24072.5 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 15.1)]
+ (?subject dbpedia:averageSpeed 37532.20645161292)]
 
 [r11:
-?subject dbpedia:rotationPeriod ge( ?R, 327243.599609375 ) 
+?subject dbpedia:escapeVelocity ge( ?E, 78038.650390625 ), 
+?subject dbpedia:escapeVelocity lessThan( ?E, 16269.10009765625 ), 
+?subject dbpedia:absoluteMagnitude lessThan( ?M, 15.0 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 15.5)]
+ (?subject dbpedia:averageSpeed 60864.0)]
 
 [r12:
-?subject dbpedia:escapeVelocity ge( ?E, 8.820000171661377 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 1.772279977798462 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 3.5999999046325684 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 465358012416.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 608744013824.0 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 327243.599609375 ) 
+?subject dbpedia:apoapsis lessThan( ?A, 544982499328.0 ), 
+?subject dbpedia:escapeVelocity lessThan( ?E, 78038.650390625 ) 
 ->
- (?subject dbpedia:absoluteMagnitude 15.3)]
-
-[r13:
-?subject dbpedia:escapeVelocity ge( ?E, 34.739999771118164 ) 
-->
- (?subject dbpedia:absoluteMagnitude 11.766363636363637)]
-
-[r14:
-?subject dbpedia:apoapsis ge( ?A, 546196996096.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 34.739999771118164 ) 
-->
- (?subject dbpedia:absoluteMagnitude 10.983333333333333)]
-
-[r15:
-?subject dbpedia:escapeVelocity ge( ?E, 18.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 10.81)]
-
-[r16:
-?subject dbpedia:apoapsis ge( ?A, 643212017664.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 546196996096.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 18.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 10.143999999999998)]
-
-[r17:
-?subject dbpedia:escapeVelocity ge( ?E, 60.1200008392334 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 643212017664.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 7.48)]
-
-[r18:
-?subject dbpedia:rotationPeriod ge( ?R, 33103.80078125 ) 
-->
- (?subject dbpedia:absoluteMagnitude 9.965)]
-
-[r19:
-?subject dbpedia:escapeVelocity ge( ?E, 78.11999893188477 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 33103.80078125 ) 
-->
- (?subject dbpedia:absoluteMagnitude 9.71)]
-
-[r20:
-?subject dbpedia:rotationPeriod ge( ?R, 29016.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 9.268)]
-
-[r21:
-?subject dbpedia:apoapsis ge( ?A, 493316997120.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 78.11999893188477 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 29016.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 8.84)]
-
-[r22:
-?subject dbpedia:apoapsis ge( ?A, 531730497536.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 10.290000000000001)]
-
-[r23:
-?subject dbpedia:escapeVelocity ge( ?E, 90.54000091552734 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 531730497536.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 9.38)]
-
-[r24:
-?subject dbpedia:escapeVelocity ge( ?E, 97.91999816894531 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 60.1200008392334 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 493316997120.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 90.54000091552734 ) 
-->
- (?subject dbpedia:absoluteMagnitude 11.39)]
-
-[r25:
-?subject dbpedia:rotationPeriod ge( ?R, 8807.0400390625 ) 
-->
- (?subject dbpedia:absoluteMagnitude 17.6)]
-
-[r26:
-?subject dbpedia:apoapsis ge( ?A, 305005494272.0 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 8807.0400390625 ) 
-->
- (?subject dbpedia:absoluteMagnitude 18.1)]
-
-[r27:
-?subject dbpedia:apoapsis ge( ?A, 540157001728.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 7.947572815533976)]
-
-[r28:
-?subject dbpedia:escapeVelocity ge( ?E, 370.97999572753906 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 540157001728.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 8.90107142857143)]
-
-[r29:
-?subject dbpedia:apoapsis ge( ?A, 3756924469248.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 7.205151515151516)]
-
-[r30:
-?subject dbpedia:escapeVelocity ge( ?E, 261000.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 370.97999572753906 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 3756924469248.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 4.325)]
-
-[r31:
-?subject dbpedia:escapeVelocity lessThan( ?E, 8.820000171661377 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 97.91999816894531 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 305005494272.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 261000.0 ) 
-->
- (?subject dbpedia:absoluteMagnitude 16.9)]
+ (?subject dbpedia:averageSpeed 55305.0)]
 
