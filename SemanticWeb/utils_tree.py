@@ -1,5 +1,3 @@
-
-
 def get_rules(tree, feature_names,target):
         left      = tree.tree_.children_left
         right     = tree.tree_.children_right
