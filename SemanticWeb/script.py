@@ -14,7 +14,7 @@ sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
 sparql.setQuery("""
    PREFIX dbpedia: <http://dbpedia.org/ontology/>
-   SELECT DISTINCT ?mag ?apoapsis ?periapsis ?escape ?rotPer ?orbitalPer ?albedo ?target
+   SELECT DISTINCT ?CelestialBody ?mag ?apoapsis ?periapsis ?escape ?rotPer ?orbitalPer ?albedo ?target
    WHERE{
       ?CelestialBody a dbpedia:Planet.
       ?CelestialBody dbpedia:absoluteMagnitude ?mag.
@@ -42,14 +42,20 @@ import numpy as np
 X = []
 y = []
 X_void =[]
-
-for result in results["results"]["bindings"]:
-   
-   if 'target' not in result:
-      X_void.append([float(result['mag']['value']),float(result['albedo']['value']),float(result['apoapsis']['value']),float(result['periapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
-   else:
-      X.append([float(result['mag']['value']),float(result['albedo']['value']),float(result['apoapsis']['value']),float(result['periapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
-      y.append(float(result['target']['value']))
+with open('Planets.n3','w') as f:
+   for result in results["results"]["bindings"]:
+      
+      if 'target' not in result:
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> ' +result['mag']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/apoapsis> ' +result['apoapsis']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/escapeVelocity> ' +result['escape']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/rotationPeriod> ' +result['rotPer']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ' +result['orbitalPer']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/periapsis> ' +result['periapsis']['value']+'.\n')
+         f.write('<'+result['CelestialBody']['value']+'> <https://cs.dbpedia.org/ontology/Planet/albedo> ' +result['albedo']['value']+'.\n')
+      else:
+         X.append([float(result['mag']['value']),float(result['albedo']['value']),float(result['apoapsis']['value']),float(result['periapsis']['value']),float(result['escape']['value']),float(result['rotPer']['value']),float(result['orbitalPer']['value'])])
+         y.append(float(result['target']['value']))
       
 
 X = np.array(X)
@@ -57,27 +63,6 @@ y = np.array(y)
 print(f'total samples downloaded: {len(y)}')
 features = [('https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude','M'),('https://cs.dbpedia.org/ontology/Planet/albedo','L'),('https://cs.dbpedia.org/ontology/Planet/periapsis','P'),('https://cs.dbpedia.org/ontology/Planet/apoapsis','A'),('https://cs.dbpedia.org/ontology/Planet/rotationPeriod','R'),('https://cs.dbpedia.org/ontology/Planet/escapeVelocity','E'),('https://cs.dbpedia.org/ontology/Planet/orbitalPeriod','O')]
 target = 'https://cs.dbpedia.org/ontology/Planet/temperature'
-
-
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import train_test_split
-'''
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=33)
-
-print(f"x_train:{len(y_train)}\nx_test:{len(y_test)}")
-for i in range(len(features),len(features)*4):
-   regr = DecisionTreeRegressor(max_depth=i,min_samples_split=0.1,criterion='friedman_mse')
-   regr.fit(X_train, y_train)
-
-   r_tests = regr.predict(X_test)
-   tot = 0
-   for j in range(0,len(r_tests)):
-      tot += (abs(r_tests[j]-y_test[j]))
-   tot/=len(r_tests)
-   print(f"mse({i}): {tot}")
-y = np.array(y_test)
-print(f"max: {y.max()} - min: {y.min()} - mean: {y.mean()}")
-'''
 
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
