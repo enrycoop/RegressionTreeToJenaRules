@@ -1,94 +1,94 @@
-[r0:
-?subject dbpedia:periapsis ge( ?P, 208951492608.0 ) 
+[rule0:
+(?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 208951492608.0 ) 
 ->
- (?subject dbpedia:temperature 271.8)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 271.8)]
 
-[r1:
-?subject dbpedia:apoapsis ge( ?A, 305487003648.0 ) 
+[rule1:
+(?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> ?A) ge( ?A, 305487003648.0 ) 
 ->
- (?subject dbpedia:temperature 226.1)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 226.1)]
 
-[r2:
-?subject dbpedia:periapsis ge( ?P, 402035507200.0 ), 
-?subject dbpedia:periapsis lessThan( ?P, 208951492608.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 305487003648.0 ) 
+[rule2:
+(?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 402035507200.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> P) lessThan( ?P, 208951492608.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> A) lessThan( ?A, 305487003648.0 ) 
 ->
- (?subject dbpedia:temperature 197.125)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 197.125)]
 
-[r3:
-?subject dbpedia:absoluteMagnitude ge( ?M, 6.8999998569488525 ) 
+[rule3:
+(?subject <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> ?M) ge( ?M, 6.8999998569488525 ) 
 ->
- (?subject dbpedia:temperature 188.0)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 188.0)]
 
-[r4:
-?subject dbpedia:orbitalPeriod ge( ?O, 136045000.0 ), 
-?subject dbpedia:absoluteMagnitude lessThan( ?M, 6.8999998569488525 ) 
+[rule4:
+(?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ?O) ge( ?O, 136045000.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> M) lessThan( ?M, 6.8999998569488525 ) 
 ->
- (?subject dbpedia:temperature 173.3846153846154)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 173.3846153846154)]
 
-[r5:
-?subject dbpedia:orbitalPeriod ge( ?O, 136480000.0 ), 
-?subject dbpedia:orbitalPeriod lessThan( ?O, 136045000.0 ) 
+[rule5:
+(?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ?O) ge( ?O, 136480000.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> O) lessThan( ?O, 136045000.0 ) 
 ->
- (?subject dbpedia:temperature 222.0)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 222.0)]
 
-[r6:
-?subject dbpedia:orbitalPeriod ge( ?O, 169318000.0 ) 
+[rule6:
+(?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ?O) ge( ?O, 169318000.0 ) 
 ->
- (?subject dbpedia:temperature 167.35714285714286)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 167.35714285714286)]
 
-[r7:
-?subject dbpedia:orbitalPeriod ge( ?O, 169404504.0 ), 
-?subject dbpedia:orbitalPeriod lessThan( ?O, 169318000.0 ) 
+[rule7:
+(?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ?O) ge( ?O, 169404504.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> O) lessThan( ?O, 169318000.0 ) 
 ->
- (?subject dbpedia:temperature 133.0)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 133.0)]
 
-[r8:
-?subject dbpedia:periapsis ge( ?P, 538886995968.0 ), 
-?subject dbpedia:orbitalPeriod lessThan( ?O, 136480000.0 ), 
-?subject dbpedia:orbitalPeriod lessThan( ?O, 169404504.0 ) 
+[rule8:
+(?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 538886995968.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> O) lessThan( ?O, 136480000.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> O) lessThan( ?O, 169404504.0 ) 
 ->
- (?subject dbpedia:temperature 185.55555555555554)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 185.55555555555554)]
 
-[r9:
-?subject dbpedia:escapeVelocity ge( ?E, 15991.5498046875 ) 
+[rule9:
+(?subject <https://cs.dbpedia.org/ontology/Planet/escapeVelocity> ?E) ge( ?E, 15991.5498046875 ) 
 ->
- (?subject dbpedia:temperature 152.66666666666666)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 152.66666666666666)]
 
-[r10:
-?subject dbpedia:apoapsis ge( ?A, 375688003584.0 ) 
+[rule10:
+(?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> ?A) ge( ?A, 375688003584.0 ) 
 ->
- (?subject dbpedia:temperature 166.85714285714286)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 166.85714285714286)]
 
-[r11:
-?subject dbpedia:periapsis ge( ?P, 35714288812032.0 ), 
-?subject dbpedia:apoapsis lessThan( ?A, 375688003584.0 ) 
+[rule11:
+(?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 35714288812032.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> A) lessThan( ?A, 375688003584.0 ) 
 ->
- (?subject dbpedia:temperature 190.63636363636363)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 190.63636363636363)]
 
-[r12:
-?subject dbpedia:rotationPeriod ge( ?R, 459.8999938964844 ), 
-?subject dbpedia:periapsis lessThan( ?P, 538886995968.0 ), 
-?subject dbpedia:escapeVelocity lessThan( ?E, 15991.5498046875 ), 
-?subject dbpedia:periapsis lessThan( ?P, 35714288812032.0 ) 
+[rule12:
+(?subject <https://cs.dbpedia.org/ontology/Planet/rotationPeriod> ?R) ge( ?R, 459.8999938964844 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> P) lessThan( ?P, 538886995968.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/escapeVelocity> E) lessThan( ?E, 15991.5498046875 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> P) lessThan( ?P, 35714288812032.0 ) 
 ->
- (?subject dbpedia:temperature 222.0)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 222.0)]
 
-[r13:
-?subject dbpedia:albedo ge( ?L, 0.22350000590085983 ) 
+[rule13:
+(?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> ?A) ge( ?A, 309478490112.0 ) 
 ->
- (?subject dbpedia:temperature 210.16666666666666)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 230.61111111111111)]
 
-[r14:
-?subject dbpedia:orbitalPeriod ge( ?O, 284763504.0 ), 
-?subject dbpedia:periapsis lessThan( ?P, 402035507200.0 ), 
-?subject dbpedia:rotationPeriod lessThan( ?R, 459.8999938964844 ), 
-?subject dbpedia:albedo lessThan( ?L, 0.22350000590085983 ) 
+[rule14:
+(?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> ?A) ge( ?A, 591724511232.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> P) lessThan( ?P, 402035507200.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/rotationPeriod> R) lessThan( ?R, 459.8999938964844 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> A) lessThan( ?A, 309478490112.0 ) 
 ->
- (?subject dbpedia:temperature 230.61111111111111)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 210.16666666666666)]
 
-[r15:
-?subject dbpedia:orbitalPeriod lessThan( ?O, 284763504.0 ) 
+[rule15:
+( ?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> A) lessThan( ?A, 591724511232.0 ) 
 ->
- (?subject dbpedia:temperature 109.25)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 109.25)]
 

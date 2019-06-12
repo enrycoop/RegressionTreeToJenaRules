@@ -27,6 +27,7 @@ sparql.setQuery("""
       OPTIONAL{
        ?CelestialBody dbpedia:temperature ?target.
       }
+      
    } 
 """)
 
@@ -54,8 +55,9 @@ for result in results["results"]["bindings"]:
 X = np.array(X)
 y = np.array(y)
 print(f'total samples downloaded: {len(y)}')
-features = [('dbpedia:absoluteMagnitude','M'),('dbpedia:albedo','L'),('dbpedia:periapsis','P'),('dbpedia:apoapsis','A'),('dbpedia:rotationPeriod','R'),('dbpedia:escapeVelocity','E'),('dbpedia:orbitalPeriod','O')]
-target = 'dbpedia:temperature'
+features = [('https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude','M'),('https://cs.dbpedia.org/ontology/Planet/albedo','L'),('https://cs.dbpedia.org/ontology/Planet/periapsis','P'),('https://cs.dbpedia.org/ontology/Planet/apoapsis','A'),('https://cs.dbpedia.org/ontology/Planet/rotationPeriod','R'),('https://cs.dbpedia.org/ontology/Planet/escapeVelocity','E'),('https://cs.dbpedia.org/ontology/Planet/orbitalPeriod','O')]
+target = 'https://cs.dbpedia.org/ontology/Planet/temperature'
+
 
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split

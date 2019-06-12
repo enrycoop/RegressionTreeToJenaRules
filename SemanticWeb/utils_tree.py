@@ -9,7 +9,7 @@ def get_rules(tree, feature_names,target):
                 stringa = ""
                 stringb = ""
                 if (threshold[node] != -2):
-                        stringa+=("\n?subject "+features[node][0]+" ge( ?"+features[node][1] + ', '+str(threshold[node]) + " )")
+                        stringa+=("\n(?subject <"+features[node][0]+"> ?"+features[node][1]+") ge( ?"+features[node][1] + ', '+str(threshold[node]) + " )")
                         if left[node] != -1:
                                 rulea = recurse (left, right, threshold, features,target,left[node],rules)
                                 if len(rulea)==0:
@@ -20,7 +20,7 @@ def get_rules(tree, feature_names,target):
                                         else:
                                                 rulea[(len(rulea)-1)] = stringa  + ', '+rulea[(len(rulea)-1)]
 
-                        stringb+=("\n?subject "+features[node][0]+" lessThan( ?"+features[node][1] + ', '+str(threshold[node]) + " )")
+                        stringb+=("\n( ?subject <"+features[node][0]+"> "+features[node][1]+") lessThan( ?"+features[node][1] + ', '+str(threshold[node]) + " )")
                         if right[node] != -1:
                                 ruleb = recurse (left, right, threshold, features,target,right[node],rules)
                                 if(len(ruleb)==0):
@@ -32,12 +32,12 @@ def get_rules(tree, feature_names,target):
                                                 ruleb[(len(ruleb)-1)] = stringb +', '+ruleb[(len(ruleb)-1)]
                         return rulea+ruleb
                 else:
-                        return [("\n->\n (?subject "+ target +' '+ str(value[node][0][0]))+')']
+                        return [("\n->\n (?subject <"+ target +'> '+ str(value[node][0][0]))+')']
                         
         rules = recurse(left, right, threshold, features,target, 0,[])
         frules = []
         i = 0
         for rule in rules:
-                frules.append(f'[r{i}:'+rule+']')
+                frules.append(f'[rule{i}:'+rule+']')
                 i+=1
         return frules
