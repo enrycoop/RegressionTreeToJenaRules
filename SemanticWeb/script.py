@@ -3,9 +3,6 @@ import pandas
 from sklearn.tree import _tree
 from sklearn import tree
 from utils_tree import *
-from sklearn.externals.six import StringIO  
-import pydotplus
-from IPython.display import Image 
 
 
 
@@ -91,17 +88,11 @@ features = [('https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude','M'),('h
 target = 'https://cs.dbpedia.org/ontology/Planet/temperature'
 
 
-#
-# evaluate(X,y,features)
+
+evaluate(X,y,features)
 
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
 with open('rules_result.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
-
-from subprocess import call
-dot_file = "tree.dot"
-with open(dot_file, 'w') as f:
-    tree.export_graphviz(regr, out_file=f) 
-call(['python','C:\\Users\\enric\\AppData\\Local\\Programs\\Python\\Python36\\Lib\\site-packages\\graphviz\\dot.py', '-Tpdf', dot_file, '-o', "tree.pdf"])

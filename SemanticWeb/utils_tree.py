@@ -46,10 +46,10 @@ def get_rules(tree, feature_names,target):
                 i+=1
         return frules
 
-def evaluate(X,y,features):
+def evaluate(X,y,l):
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=0)
         print(f"x_train:{len(y_train)}\nx_test:{len(y_test)}")
-        for i in range(len(features),len(features)*4):
+        for i in range(1,l*4):
                 regr = DecisionTreeRegressor(max_depth=i,min_samples_split=0.1,criterion='friedman_mse')
                 regr.fit(X_train, y_train)
 
@@ -58,7 +58,8 @@ def evaluate(X,y,features):
                 for j in range(0,len(r_tests)):
                         tot += (abs(r_tests[j]-y_test[j]))
                 tot/=len(r_tests)
-                print(f"mse({i}): {tot}")
+                #print(str(i)+";"+str(tot).replace('.',','))
+                print(f"mae({i}): {tot}")
         y = np.array(y_test)
         print(f"max: {y.max()} - min: {y.min()} - mean: {y.mean()}")
 

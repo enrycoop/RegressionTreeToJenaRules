@@ -1,19 +1,19 @@
 [rule0:
-(?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> ?O) ge( ?O, 106151500.0 ) 
+(?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 208951492608.0 ) 
+->
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 271.8)]
+
+[rule1:
+(?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> ?A) ge( ?A, 305487003648.0 ) 
 ->
  (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 226.1)]
 
-[rule1:
-(?subject <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> ?M) ge( ?M, 19.450000762939453 ), 
-( ?subject <https://cs.dbpedia.org/ontology/Planet/orbitalPeriod> O) lessThan( ?O, 106151500.0 ) 
-->
- (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 197.125)]
-
 [rule2:
 (?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> ?P) ge( ?P, 402035507200.0 ), 
-( ?subject <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> M) lessThan( ?M, 19.450000762939453 ) 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/periapsis> P) lessThan( ?P, 208951492608.0 ), 
+( ?subject <https://cs.dbpedia.org/ontology/Planet/apoapsis> A) lessThan( ?A, 305487003648.0 ) 
 ->
- (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 271.8)]
+ (?subject <https://cs.dbpedia.org/ontology/Planet/temperature> 197.125)]
 
 [rule3:
 (?subject <https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude> ?M) ge( ?M, 6.8999998569488525 ) 
