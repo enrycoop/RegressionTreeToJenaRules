@@ -47,7 +47,7 @@ def get_rules(tree, feature_names,target):
         return frules
 
 def evaluate(X,y,features):
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=33)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=0)
         print(f"x_train:{len(y_train)}\nx_test:{len(y_test)}")
         for i in range(len(features),len(features)*4):
                 regr = DecisionTreeRegressor(max_depth=i,min_samples_split=0.1,criterion='friedman_mse')
