@@ -57,7 +57,7 @@ features = [('https://cs.dbpedia.org/ontology/numberOfRooms','R'),
 target = 'https://cs.dbpedia.org/ontology/floorCount'
 
 
-evaluate(X,y,features)
+evaluate(X,y,len(features))
 '''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
