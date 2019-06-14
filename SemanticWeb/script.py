@@ -88,10 +88,11 @@ target = 'https://cs.dbpedia.org/ontology/Planet/temperature'
 
 
 
-evaluate(X,y,len(features))
-
+kfoldvalidation(X,y,9,20)
+'''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
 with open('rules_planets_temperature.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
+         '''

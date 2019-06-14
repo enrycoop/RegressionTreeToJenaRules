@@ -61,10 +61,11 @@ print(f'total samples downloaded: {i}')
 features = [('https://cs.dbpedia.org/property/years','Y'),('https://cs.dbpedia.org/ontology/height','S')]
 target = 'https://cs.dbpedia.org/ontology/weight'
 
-evaluate(X,y,len(X[0]))
-
+kfoldvalidation(X,y,10,20)
+'''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
 with open('rules_people_weight.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
+          '''

@@ -55,10 +55,11 @@ print(f'total samples downloaded: {i}')
 features = [('https://cs.dbpedia.org/ontology/floorCount','R'),('https://cs.dbpedia.org/ontology/numberOfSuites','S')]
 target = 'https://cs.dbpedia.org/ontology/numberOfRooms'
 
-evaluate(X,y,len(X[0]))
-
+kfoldvalidation(X,y,9,20)
+'''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
 with open('rules_hotels_floors.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
+         '''
