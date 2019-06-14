@@ -1,0 +1,59 @@
+---------------------Organization--------------------
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX prop: <http://dbpedia.org/property/>
+   SELECT DISTINCT *
+WHERE{
+      ?Company a dbpedia:Organisation.
+      ?Company dbpedia:numberOfEmployees  ?num.
+      ?Company dbpedia:numberOfLocations ?loc.
+      ?company prop:profit ?obj.
+      
+   } 
+   
+   
+
+PREFIX prop: <http://dbpedia.org/property/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+SELECT DISTINCT ?Company  ?target
+   WHERE{
+      ?Company a dbpedia:Organisation.
+      
+      ?Company prop:alexa ?target.
+      
+   } 
+
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+   SELECT DISTINCT ?prop
+   WHERE{
+      ?Company a dbpedia:Organisation;
+      ?prop ?obj.
+FILTER(datatype(?obj) = xsd:integer)
+      
+   } 
+   
+   
+---------------------------HOTEL---------------------
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+   SELECT DISTINCT ?hotel ?target ?p ?s
+   WHERE{
+      ?hotel a dbpedia:Hotel.
+      ; dbpedia:floorCount ?target
+      ; dbpedia:numberOfRooms ?p
+      ; dbpedia:numberOfSuites ?s
+   }
+   
+-------------------------PERSON----------------------
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX prop: <http://dbpedia.org/property/>
+
+SELECT DISTINCT ?x ?sex ?h ?w ?y
+ WHERE { ?x a foaf:Person 
+; foaf:gender ?sex 
+; dbpedia:height ?h
+; dbpedia:weight ?w
+; prop:years ?y.
+FILTER (langMatches(lang(?sex), "EN"))
+FILTER(datatype(?y) = xsd:integer)//da controllare che l'intero sia di 4 numeri
+}
