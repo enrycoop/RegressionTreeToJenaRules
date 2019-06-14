@@ -4,8 +4,6 @@ from sklearn.tree import _tree
 from sklearn import tree
 from utils_tree import *
 
-
-
 """
 DESCRIPTION OF TARGET 
 """
@@ -44,7 +42,8 @@ import numpy as np
 
 X = []
 y = []
-X_void =[]
+
+i = 0
 with open('Planets.n3','w') as f:
    for result in results["results"]["bindings"]:
       
@@ -79,11 +78,11 @@ with open('Planets.n3','w') as f:
          float(result['rotPer']['value']),
          float(result['orbitalPer']['value'])])
          y.append(float(result['target']['value']))
-      
+         i += 1
 
 X = np.array(X)
 y = np.array(y)
-print(f'total samples downloaded: {len(y)}')
+print(f'total samples downloaded: {i}')
 features = [('https://cs.dbpedia.org/ontology/Planet/absoluteMagnitude','M'),('https://cs.dbpedia.org/ontology/Planet/albedo','L'),('https://cs.dbpedia.org/ontology/Planet/periapsis','P'),('https://cs.dbpedia.org/ontology/Planet/apoapsis','A'),('https://cs.dbpedia.org/ontology/Planet/rotationPeriod','R'),('https://cs.dbpedia.org/ontology/Planet/escapeVelocity','E'),('https://cs.dbpedia.org/ontology/Planet/orbitalPeriod','O')]
 target = 'https://cs.dbpedia.org/ontology/Planet/temperature'
 
@@ -93,6 +92,6 @@ evaluate(X,y,len(features))
 
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
-with open('rules_result.rules','w') as f:
+with open('rules_planets_temperature.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')

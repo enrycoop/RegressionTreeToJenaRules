@@ -13,19 +13,20 @@ sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
 #execution of SPARQL query
 sparql.setQuery("""
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+   PREFIX foaf: <http://xmlns.com/foaf/0.1/>
     PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
     PREFIX dbpedia: <http://dbpedia.org/ontology/>
     PREFIX prop: <http://dbpedia.org/property/>
 
-    SELECT DISTINCT ?sex ?h ?y ?w
-    WHERE { ?x a foaf:Person 
-    ; foaf:gender ?sex 
-    ; dbpedia:height ?h
-    ; dbpedia:weight ?w
-    ; prop:years ?y.
+    SELECT DISTINCT ?x ?sex ?h ?target ?y
+    WHERE { ?x a foaf:Person .
+    ?x foaf:gender ?sex .
+    ?x dbpedia:height ?h.
+    OPTIONAL{?x dbpedia:weight ?target}
+    ?x prop:years ?y.
     FILTER (langMatches(lang(?sex), "EN"))
     FILTER(datatype(?y) = xsd:integer)
+    FILTER(datatype(?target) = xsd:double)
     }
 """)
 
@@ -37,26 +38,33 @@ results = sparql.query().convert()
 import numpy as np
 X = []
 y = []
-X_void =[]
-for result in results["results"]["bindings"]:
-    X.append([
+
+i = 0
+with open('People.n3','w') as f:
+    for result in results["results"]["bindings"]:
+        if i<150:
+            f.write('<'+result['x']['value']
+            +'> <https://cs.dbpedia.org/ontology/height> '
+            +result['h']['value']+'.\n')
+            f.write('<'+result['x']['value']
+            +'> <https://cs.dbpedia.org/property/years> '
+            +result['y']['value']+'.\n')
+        X.append([
         float(result['h']['value']),
-    float(result['y']['value'])])
-    y.append(float(result['w']['value']))
+        float(result['y']['value'])])
+        y.append(float(result['target']['value']))
+        i += 1
 
 X = np.array(X)
 y = np.array(y)
-print(f'total samples downloaded: {len(y)}')
-features = [('https://cs.dbpedia.org/ontology/numberOfRooms','R'),
-('https://cs.dbpedia.org/ontology/numberOfSuites','S'),('','')]
-target = 'https://cs.dbpedia.org/ontology/floorCount'
+print(f'total samples downloaded: {i}')
+features = [('https://cs.dbpedia.org/property/years','Y'),('https://cs.dbpedia.org/ontology/height','S')]
+target = 'https://cs.dbpedia.org/ontology/weight'
 
+evaluate(X,y,len(X[0]))
 
-evaluate(X,y,len(features))
-'''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
-with open('rules_result.rules','w') as f:
+with open('rules_people_weight.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
-'''

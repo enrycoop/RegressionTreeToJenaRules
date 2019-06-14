@@ -17,8 +17,8 @@ sparql.setQuery("""
    SELECT DISTINCT ?HOTEL ?target ?rooms ?suites
    WHERE{
       ?HOTEL a dbpedia:Hotel.
-      OPTIONAL{?HOTEL dbpedia:floorCount ?target.}
-      ?HOTEL dbpedia:numberOfRooms ?rooms.
+      ?HOTEL dbpedia:floorCount ?target.
+      OPTIONAL{?HOTEL dbpedia:numberOfRooms ?rooms.}
       ?HOTEL dbpedia:numberOfSuites ?suites.
    } 
 """)
@@ -31,37 +31,34 @@ results = sparql.query().convert()
 import numpy as np
 X = []
 y = []
-X_void =[]
+
+i = 0
 with open('Hotels.n3','w') as f:
    for result in results["results"]["bindings"]:
-      if 'target' not in result:
-          """
+      if 'rooms' not in result:
          f.write('<'+result['HOTEL']['value']
-         +'> <https://cs.dbpedia.org/ontology/numberOfRooms> '
-          +result['rooms']['value']+'.\n')
+         +'> <https://cs.dbpedia.org/ontology/floorCount> '
+          +result['target']['value']+'.\n')
          f.write('<'+result['HOTEL']['value']
          +'> <https://cs.dbpedia.org/ontology/numberOfSuites> '
          +result['suites']['value']+'.\n')
-         """
       else:
          X.append([
          int(result['target']['value']),
          int(result['suites']['value'])])
          y.append(int(result['rooms']['value']))
+         i += 1
 
 X = np.array(X)
 y = np.array(y)
-print(f'total samples downloaded: {len(y)}')
-features = [('https://cs.dbpedia.org/ontology/numberOfRooms','R'),
-('https://cs.dbpedia.org/ontology/numberOfSuites','S')]
-target = 'https://cs.dbpedia.org/ontology/floorCount'
+print(f'total samples downloaded: {i}')
+features = [('https://cs.dbpedia.org/ontology/floorCount','R'),('https://cs.dbpedia.org/ontology/numberOfSuites','S')]
+target = 'https://cs.dbpedia.org/ontology/numberOfRooms'
 
+evaluate(X,y,len(X[0]))
 
-evaluate(X,y,len(features))
-'''
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
-with open('rules_result.rules','w') as f:
+with open('rules_hotels_floors.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
-'''
