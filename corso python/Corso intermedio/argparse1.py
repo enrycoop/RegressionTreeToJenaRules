@@ -1,0 +1,9 @@
+def calcolatrice(n1, n2, op):
+    if op == 'add':
+        return n1 + n2
+    elif op == 'sot':
+        return n1 - n2
+    elif op == 'mol':
+        return n1 * n2
+    elif op == 'div':
+        return n1 / n2
