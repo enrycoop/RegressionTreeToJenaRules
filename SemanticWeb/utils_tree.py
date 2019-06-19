@@ -61,7 +61,7 @@ def evaluate(X,y,l):
                         tot += (abs(r_tests[j]-y_test[j]))
                 tot/=len(r_tests)
                 print(str(tot).replace('.',','))
-                #print(f"mae({i}): {tot}")
+                print(f"mae({i}): {tot}")
         y = np.array(y_test)
         print(f"max: {y.max()} - min: {y.min()} - mean: {y.mean()}")
 
@@ -86,7 +86,7 @@ def kfoldvalidation(X,y,k,l):
                 
                 print(np.array(mae).mean())
                 
-                #print(f"max: {np.array(y_test).max()} - min: {np.array(y_test).min()} - mean: {np.array(y_test).mean()}")
+        print(f"max: {np.array(y_test).max()} - min: {np.array(y_test).min()} - mean: {np.array(y_test).mean()}")
 
 
                 

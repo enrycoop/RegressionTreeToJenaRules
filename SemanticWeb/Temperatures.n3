@@ -1,8 +1,8 @@
 <http://dbpedia.org/resource/130_Elektra> <https://cs.dbpedia.org/ontology/Planet/temperature> "188.0"^^http://www.w3.org/2001/XMLSchema#float.
 
-<http://dbpedia.org/resource/130_Elektra> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
-
 <http://dbpedia.org/resource/130_Elektra> <https://cs.dbpedia.org/ontology/Planet/temperature> "226.1"^^http://www.w3.org/2001/XMLSchema#float.
+
+<http://dbpedia.org/resource/130_Elektra> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
 
 <http://dbpedia.org/resource/130_Elektra> <https://cs.dbpedia.org/ontology/Planet/temperature> "167.35714285714286"^^http://www.w3.org/2001/XMLSchema#float.
 
@@ -38,9 +38,9 @@
 
 <http://dbpedia.org/resource/141_Lumen> <https://cs.dbpedia.org/ontology/Planet/temperature> "188.0"^^http://www.w3.org/2001/XMLSchema#float.
 
-<http://dbpedia.org/resource/141_Lumen> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
-
 <http://dbpedia.org/resource/141_Lumen> <https://cs.dbpedia.org/ontology/Planet/temperature> "226.1"^^http://www.w3.org/2001/XMLSchema#float.
+
+<http://dbpedia.org/resource/141_Lumen> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
 
 <http://dbpedia.org/resource/141_Lumen> <https://cs.dbpedia.org/ontology/Planet/temperature> "166.85714285714286"^^http://www.w3.org/2001/XMLSchema#float.
 
@@ -56,9 +56,9 @@
 
 <http://dbpedia.org/resource/90_Antiope> <https://cs.dbpedia.org/ontology/Planet/temperature> "188.0"^^http://www.w3.org/2001/XMLSchema#float.
 
-<http://dbpedia.org/resource/90_Antiope> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
-
 <http://dbpedia.org/resource/90_Antiope> <https://cs.dbpedia.org/ontology/Planet/temperature> "226.1"^^http://www.w3.org/2001/XMLSchema#float.
+
+<http://dbpedia.org/resource/90_Antiope> <https://cs.dbpedia.org/ontology/Planet/temperature> "271.8"^^http://www.w3.org/2001/XMLSchema#float.
 
 <http://dbpedia.org/resource/90_Antiope> <https://cs.dbpedia.org/ontology/Planet/temperature> "167.35714285714286"^^http://www.w3.org/2001/XMLSchema#float.
 

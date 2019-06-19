@@ -56,10 +56,10 @@ features = [('https://cs.dbpedia.org/ontology/floorCount','R'),('https://cs.dbpe
 target = 'https://cs.dbpedia.org/ontology/numberOfRooms'
 
 kfoldvalidation(X,y,9,20)
-'''
+
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
 with open('rules_hotels_floors.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
-         '''
+
