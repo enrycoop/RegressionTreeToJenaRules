@@ -1,0 +1,16 @@
+[rule0:
+(?subject <https://cs.dbpedia.org/ontology/floorCount> ?R) ge( ?R, 7.5 ) 
+->
+ (?subject <https://cs.dbpedia.org/ontology/numberOfRooms> 149.7872340425532)]
+
+[rule1:
+(?subject <https://cs.dbpedia.org/ontology/numberOfSuites> ?S) ge( ?S, 84.5 ), 
+( ?subject <https://cs.dbpedia.org/ontology/floorCount> R) lessThan( ?R, 7.5 ) 
+->
+ (?subject <https://cs.dbpedia.org/ontology/numberOfRooms> 393.7132352941176)]
+
+[rule2:
+( ?subject <https://cs.dbpedia.org/ontology/numberOfSuites> S) lessThan( ?S, 84.5 ) 
+->
+ (?subject <https://cs.dbpedia.org/ontology/numberOfRooms> 880.36)]
+
