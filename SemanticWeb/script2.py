@@ -33,7 +33,7 @@ X = []
 y = []
 
 i = 0
-with open('Hotels.n3','w') as f:
+with open('SemanticWeb/Hotels.n3','w') as f:
    for result in results["results"]["bindings"]:
       if 'rooms' not in result:
          f.write('<'+result['HOTEL']['value']
@@ -59,7 +59,7 @@ kfoldvalidation(X,y,9,20)
 
 regr = DecisionTreeRegressor(criterion='friedman_mse',max_depth=len(features),min_samples_split=0.1)
 regr.fit(X, y)
-with open('rules_hotels_floors.rules','w') as f:
+with open('SemanticWeb/rules_hotels_floors.rules','w') as f:
    for rule in get_rules(regr,features,target):
       f.write(rule+'\n\n')
 
